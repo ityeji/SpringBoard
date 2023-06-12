@@ -1,4 +1,4 @@
-package com.ssafy.mvc;
+package com.yeji.mvc;
 
 import java.text.DateFormat;
 import java.util.Date;

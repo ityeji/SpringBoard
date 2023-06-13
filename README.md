@@ -26,7 +26,7 @@
   - 날씨도 따오고 싶다... (추후 공부 필요)
   - 게시글 수정, 삭제, 좋아요 가능
   - 댓글은 로그인 유저만 작성 가능
-  - 각 게시판은 세부 분류가 있음(드롭박스로 이동 가능)
+  - 각 게시판은 세부 분류가 있음(드롭박스로 이동 가능) -> 이건 그럼 subBoard로 따로 sql문을 만들어 줘야겠다!
     - 이런저런(자유게시판)
     - 이거 좋아요!(여행 정보 공유)
     - 이건 어떄요?(여행 정보 질문)
@@ -41,3 +41,8 @@ https://ovenapp.io/view/Re1ht00g3nYZH3Tmb5dL5bYhtO0SDlsY/
 > bootstrap.jsp <br>
 > header.jsp
 3. servlet-context.xml, root-context.xml, web.xml 설정 완료
+
+**230613**
+1. 기타 설정 완료
+2. Board DAO, Board DTO, Board Service, Board Mapper, Board SQL
+3. SubBoard Dao, SubBoard DTO, SubBoard Service, SubBoard Mapper, SubBoard SQL

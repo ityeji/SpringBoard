@@ -21,8 +21,29 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.yeji.mvc" />
+	<context:component-scan base-package="com.yeji.board.controller" />
 	
+	<!-- Interceptor -->
+	<beans:bean id="confirm" class="com.yeji.board.interceptor.LoginCheckInterceptor" />
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/write" />
+			<beans:ref bean="confirm" />
+		</interceptor>
+	</interceptors>
+	
+	<!-- fileUpload -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760"></beans:property>
+		<beans:property name="defaultEncoding" value="UTF-8"></beans:property>
+	</beans:bean>
+	
+	<!-- fileDownload -->
+	<beans:bean id="fileDownLoadView" class="com.yeji.board.file.FileDownLoadView"></beans:bean>
+	<beans:bean id="fileViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order" value="0"></beans:property>
+	</beans:bean>
 	
 	
 </beans:beans>

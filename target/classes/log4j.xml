@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.ssafy.mvc">
+	<logger name="com.yeji.board">
 		<level value="info" />
 	</logger>
 	

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yeji.board.model.dao.BoardDao">
+	<resultMap type="Board" id="boardMap">
+		<result column="seq" property="seq" />
+		<result column="name" property="name" />
+	</resultMap>
+	
+	<!-- 전체글 조회 -->
+	<select id="selectAll" resultType="Board">
+		SELECT name
+		FROM board;
+	</select>
+</mapper>

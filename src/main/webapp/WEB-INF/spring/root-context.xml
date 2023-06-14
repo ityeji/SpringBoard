@@ -2,13 +2,30 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
-		<
-	</bean>	
+		<!-- property의 name은 setter에서 set을 뺀 이름이므로, 위의 클래스에 들어가보면 setUrl메소드가 있을 것이다.-->
+		<property name="url" value="jdbc:mysql://localhost:3306/yeji_board?serverTimezone=UTC"></property>
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+		<property name="username" value="ssafy"></property>
+		<property name="password" value="ssafy"></property>
+	</bean>
+	
+	<!-- 마이바티스를 사용하기 위한 sqlSessionFactory를 등록한다. -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property> <!-- 위에 있는 dataSource를 참고해서 쓸 것!! -->
+		<property name="mapperLocations" value="classpath*:mappers/*.xml"></property> <!-- classpath라는 것 -> javaClass 의미 -->
+		<property name="typeAliasesPackage" value="com.yeji.board.model.dto"></property>
+	</bean>
+	
+	<!-- 마이바티스에서 제공하는 scan을 통해 dao 인터페이스의 위치를 지정한다. -->
+	<!-- 이렇게 dao를 지정하면, DAO 클래스에서 어노테이션 사용하지 않아도 된다! -->
+	<mybatis-spring:scan base-package="com.yeji.board.model.dao" />
 		
 	<context:component-scan base-package="com.yeji.board.model.service"></context:component-scan>
 </beans>

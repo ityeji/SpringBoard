@@ -10,7 +10,7 @@
 	
 	<!-- 전체글 조회 -->
 	<select id="selectAll" resultType="Board">
-		SELECT name
+		SELECT *
 		FROM board;
 	</select>
 </mapper>

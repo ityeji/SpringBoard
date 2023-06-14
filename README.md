@@ -44,5 +44,16 @@ https://ovenapp.io/view/Re1ht00g3nYZH3Tmb5dL5bYhtO0SDlsY/
 
 **230613**
 1. 기타 설정 완료
+  > myBatis-spring의 dataSource는 spring jdbc 안에 있는 거 아무거나 써도 된다!
 2. Board DAO, Board DTO, Board Service, Board Mapper, Board SQL
 3. SubBoard Dao, SubBoard DTO, SubBoard Service, SubBoard Mapper, SubBoard SQL
+
+**230614**
+1. root-context.xml에 mybatis-spring:scan 추가
+  - myBatis-spring:scan을 추가하면 DAO에 어노테이션을 명시하지 않아도 빈으로 등록된다.
+  ``` <mybatis-spring:scan base-package="com.yeji.board.model.dao" /> ```
+  > 오류가 났었다! (root-context.xml의 namespace에 mybatis-spring이 없었다!!)
+  >> xsi:schemaLocation에서 mybatis-spring 버전이 안맞았기 때문! (2.0 -> 1.2로 변경) <br>
+2. bootstrap 설정 완료
+3. index.jsp
+- boardList 출력

@@ -3,12 +3,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-	<title>Home</title>
+	<title>VISIT JAPAN</title>
+	<%@ include file="./common/bootstrap.jsp" %>
 </head>
 <body>
 <h1>
-	Hello world!  
+	VISIT JAPAN 
 </h1>
-<P>  The time on the server is ${serverTime}. </P>
+<div class="container">
+	<c:forEach items="${boardList}" var="board">
+		<a href="#">${board.name}</a>
+	</c:forEach>
+</div>
 </body>
 </html>

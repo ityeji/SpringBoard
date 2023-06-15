@@ -42,13 +42,13 @@ https://ovenapp.io/view/Re1ht00g3nYZH3Tmb5dL5bYhtO0SDlsY/
 > header.jsp
 3. servlet-context.xml, root-context.xml, web.xml 설정 완료
 
-**230613**
+**230613** <br>
 1. 기타 설정 완료
   > myBatis-spring의 dataSource는 spring jdbc 안에 있는 거 아무거나 써도 된다!
 2. Board DAO, Board DTO, Board Service, Board Mapper, Board SQL
 3. SubBoard Dao, SubBoard DTO, SubBoard Service, SubBoard Mapper, SubBoard SQL
 
-**230614**
+**230614** <br>
 1. root-context.xml에 mybatis-spring:scan 추가
   - myBatis-spring:scan을 추가하면 DAO에 어노테이션을 명시하지 않아도 빈으로 등록된다.
   ``` <mybatis-spring:scan base-package="com.yeji.board.model.dao" /> ```
@@ -56,4 +56,12 @@ https://ovenapp.io/view/Re1ht00g3nYZH3Tmb5dL5bYhtO0SDlsY/
   >> xsi:schemaLocation에서 mybatis-spring 버전이 안맞았기 때문! (2.0 -> 1.2로 변경) <br>
 2. bootstrap 설정 완료
 3. index.jsp
-- boardList 출력
+- boardList 출력 완료
+
+**230615** <br>
+1. SubBoard SQL, ~~SubBoard DTO, SubBoard DAO, SubBoard Service, SubBoard Mapper, Mod BoardController~~
+- BoardController에 SubBoard를 전부 가져올 수 있는 메소드를 작성한다.
+> 진행 중... 갑자기 생각난 건데, 어차피 화면에 subBoard를 전부 리스트업 한 것을 보여줄 필요는 없고, 글 작성하거나, 글 목록 보여줄 때만 필요한 것인데... <br>
+>> 그러면, controller, mapper, dao, dto, service 다 필요가 없다! <br>
+2. board별 article 목록 jsp 일부 작성
+- 드롭박스 내려서 버튼 누르면, url로 boardSeq과 subBoardSeq 넘어가는 것까지 구현!

@@ -69,4 +69,13 @@ https://ovenapp.io/view/Re1ht00g3nYZH3Tmb5dL5bYhtO0SDlsY/
 
 **230619** <br>
 1. mapper에서 patameter가 같은 형으로 여러개이면 parameterType을 하나만 적어줘도 됨.
-2. 
+2. articleMapper에서 boardSeq, subBoardSeq을 둘 다 받을 때 boardSeq으로 받지를 못하고, param1, param2로 받아서, mapper 변수명을 바꿔주었다.
+> Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.binding.BindingException: Par <br>
+3. articleList 출력까지 완성!
+4. header.jsp 만들기
+> 로그인 했을 때와 안했을 때 상단바 다르게 출력
+5. UserSQL, UserMapper, UserDao, User, UserService, UserController
+> UserController의 경우, logIn 시 토큰 주기 <br>
+> 이메일 인증도 해보자! <br>
+> password 중복 체크도 해보자!
+  >> 버튼 누르면 postmapping으로 가서, 해당 password가 있는지 확인 후에 있으면 경고창 띄우기

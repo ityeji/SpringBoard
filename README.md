@@ -65,3 +65,8 @@ https://ovenapp.io/view/Re1ht00g3nYZH3Tmb5dL5bYhtO0SDlsY/
 >> 그러면, controller, mapper, dao, dto, service 다 필요가 없다! <br>
 2. board별 article 목록 jsp 일부 작성
 - 드롭박스 내려서 버튼 누르면, url로 boardSeq과 subBoardSeq 넘어가는 것까지 구현!
+- url로 데이터 넘겨주려면, 파라미터에 @PathValue 해줘야함!
+
+**230619** <br>
+1. mapper에서 patameter가 같은 형으로 여러개이면 parameterType을 하나만 적어줘도 됨.
+2. 

@@ -17,6 +17,8 @@
 - JSP
 - BootStrap
 
+## ERD
+
 ## DailyCheck
 **230606** <br>
 1. 세부 기능 구상하기 (Spring으로만 못하는 것들은 나중에 Vue.js 연동 프로젝트 때 만들자)
@@ -61,7 +63,41 @@ https://ovenapp.io/view/Re1ht00g3nYZH3Tmb5dL5bYhtO0SDlsY/
 **230615** <br>
 1. SubBoard SQL, ~~SubBoard DTO, SubBoard DAO, SubBoard Service, SubBoard Mapper, Mod BoardController~~
 - BoardController에 SubBoard를 전부 가져올 수 있는 메소드를 작성한다.
+> SubBoard SQL의 경우, 처음에는 name, board_seq을 복합키로 컬럼을 작성했으나, 그냥 article에 board_seq, subboard_seq 컬럼을 따로 두고 SubBoard SQL에는 seq과 name만 두기로 결정!<br>
+```
+# 이전 코드
+CREATE TABLE IF NOT EXISTS `sub_board` (
+    `name` VARCHAR(45) NOT NULL,
+    `board_seq` INT NOT NULL,
+    primary key (`name`, `board_seq`),
+    foreign key (`board_seq`) references `board` (`seq`)
+)
+ENGINE = InnoDB;
+
+INSERT sub_board(name, board_seq)
+VALUES
+('이런저런' , 2),('이건 어떄요?', 2),('이거 좋아요!', 2),
+('이런저런' , 3),('이건 어떄요?', 3),('이거 좋아요!', 3),
+('이런저런' , 4),('이건 어떄요?', 4),('이거 좋아요!', 4),
+('이런저런' , 5),('이건 어떄요?', 5),('이거 좋아요!', 5);
+```
+```
+# 현재 코드
+
+CREATE TABLE IF NOT EXISTS `sub_board` (
+    `seq` INT NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(45) NOT NULL,
+    primary key (`seq`)
+)
+ENGINE = InnoDB;
+
+INSERT sub_board(name)
+VALUES
+('이런저런'),('이건 어떄요?'),('이거 좋아요!');
+```
+> <br>
 > 진행 중... 갑자기 생각난 건데, 어차피 화면에 subBoard를 전부 리스트업 한 것을 보여줄 필요는 없고, 글 작성하거나, 글 목록 보여줄 때만 필요한 것인데... <br>
 >> 그러면, controller, mapper, dao, dto, service 다 필요가 없다! <br>
 2. board별 article 목록 jsp 일부 작성
 - 드롭박스 내려서 버튼 누르면, url로 boardSeq과 subBoardSeq 넘어가는 것까지 구현!
+3. article DTO, DAO, Mapper, SQL 작성

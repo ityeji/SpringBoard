@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yeji.board.model.dao.ArticleDao">
+	<resultMap type="Article" id="articleMap">
+		<result column="seq" property="seq" />
+		<result column="title" property="title" />
+		<result column="writer" property="writer" />
+		<result column="content" property="content" />
+		<result column="board_seq" property="boardSeq" />
+		<result column="subBoard_seq" property="subBoardSeq" />
+	</resultMap>
+	
+	<!-- 전체글 조회 -->
+	<select id="selectAll" resultMap="articleMap" parameterType="int">
+		SELECT *
+		FROM article
+		WHERE board_seq = #{boardSeq};
+	</select>
+	
+	<select id="divideAll" resultMap="articleMap" parameterType="int">
+		SELECT *
+		FROM article
+		WHERE board_seq = #{param1} AND subBoard_seq = #{param2};
+	</select>
+</mapper>

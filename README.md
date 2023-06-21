@@ -100,4 +100,26 @@ VALUES
 >> 그러면, controller, mapper, dao, dto, service 다 필요가 없다! <br>
 2. board별 article 목록 jsp 일부 작성
 - 드롭박스 내려서 버튼 누르면, url로 boardSeq과 subBoardSeq 넘어가는 것까지 구현!
+<<<<<<< HEAD
 3. article DTO, DAO, Mapper, SQL 작성
+=======
+- url로 데이터 넘겨주려면, 파라미터에 @PathValue 해줘야함!
+
+**230619** <br>
+1. mapper에서 patameter가 같은 형으로 여러개이면 parameterType을 하나만 적어줘도 됨.
+2. articleMapper에서 boardSeq, subBoardSeq을 둘 다 받을 때 boardSeq으로 받지를 못하고, param1, param2로 받아서, mapper 변수명을 바꿔주었다.
+> Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.binding.BindingException: Par <br>
+3. articleList 출력까지 완성!
+4. header.jsp 만들기
+> 로그인 했을 때와 안했을 때 상단바 다르게 출력
+5. UserSQL, UserMapper, UserDao, User, UserService, UserController
+> UserController의 경우, logIn 시 토큰 주기 <br>
+> 이메일 인증도 해보자! <br>
+> password 중복 체크도 해보자!
+  >> 버튼 누르면 postmapping으로 가서, 해당 password가 있는지 확인 후에 있으면 경고창 띄우기
+
+**230621**
+1. 디자인 수정
+2. 로그인 했을 때 토큰 주기위한 설정 파일 생성 (JWTUtil.java)
+3. UserService의 Login 메소드에 유저가 login에 성공하면 토큰 주고, 헤더에 저장하는 로직 구현
+>>>>>>> 695a0e21c40007487c2cd38ee11c27acea008f95

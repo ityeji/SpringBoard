@@ -82,3 +82,5 @@ https://ovenapp.io/view/Re1ht00g3nYZH3Tmb5dL5bYhtO0SDlsY/
 
 **230621**
 1. 디자인 수정
+2. 로그인 했을 때 토큰 주기위한 설정 파일 생성 (JWTUtil.java)
+3. UserService의 Login 메소드에 유저가 login에 성공하면 토큰 주고, 헤더에 저장하는 로직 구현

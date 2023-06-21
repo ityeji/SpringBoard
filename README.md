@@ -79,3 +79,6 @@ https://ovenapp.io/view/Re1ht00g3nYZH3Tmb5dL5bYhtO0SDlsY/
 > 이메일 인증도 해보자! <br>
 > password 중복 체크도 해보자!
   >> 버튼 누르면 postmapping으로 가서, 해당 password가 있는지 확인 후에 있으면 경고창 띄우기
+
+**230621**
+1. 디자인 수정
